@@ -3,5 +3,5 @@ Examples of different inter-process communication techniques. Based on ["Beej's 
 #### Build and run
 - To build: `docker build -t unixipc .`
 - To see the options: `docker run --rm unixipc`
-- To run a demo: `docker run --rm unixipc [demo name]`
+- To run a demo: `docker run --rm -it unixipc [demo name]`
 
