@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 #include "fork_demo.c"
+#include "signals_demo.c"
 
 void display_usage()
 {
     printf("Usage: ./unixipc <demo_name>\n");
     printf("Available demos:\n");
     printf("  fork\n");
+    printf("  signals\n");
 }
 
 int main(int argc, char *argv[])
@@ -20,6 +22,10 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], "fork") == 0)
     {
         fork_demo();
+    }
+    else if (strcmp(argv[1], "signals") == 0)
+    {
+        signals_demo();
     }
     else
     {
