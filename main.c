@@ -1,7 +1,9 @@
+#include "fork_demo.c"
+#include "pipes_demo_1.c"
+#include "pipes_demo_2.c"
+#include "signals_demo.c"
 #include <stdio.h>
 #include <string.h>
-#include "fork_demo.c"
-#include "signals_demo.c"
 
 void display_usage()
 {
@@ -9,6 +11,8 @@ void display_usage()
     printf("Available demos:\n");
     printf("  fork\n");
     printf("  signals\n");
+    printf("  pipes1\n");
+    printf("  pipes2\n");
 }
 
 int main(int argc, char *argv[])
@@ -26,6 +30,14 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[1], "signals") == 0)
     {
         signals_demo();
+    }
+    else if (strcmp(argv[1], "pipes1") == 0)
+    {
+        pipes_demo_1();
+    }
+    else if (strcmp(argv[1], "pipes2") == 0)
+    {
+        pipes_demo_2();
     }
     else
     {
