@@ -1,5 +1,4 @@
-#include <signal.h>
-#include <stdio.h>
+#include "common.h"
 
 void sigint_handler(int sig)
 {
