@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <sys/types.h>
+#include "common.h"
 
 void fork_demo()
 {

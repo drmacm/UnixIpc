@@ -1,9 +1,9 @@
+#include "common.h"
+#include "fifo_demo.c"
 #include "fork_demo.c"
 #include "pipes_demo_1.c"
 #include "pipes_demo_2.c"
 #include "signals_demo.c"
-#include <stdio.h>
-#include <string.h>
 
 void display_usage()
 {
