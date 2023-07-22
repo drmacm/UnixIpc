@@ -14,7 +14,7 @@ void fork_demo()
         printf("CHILD: PID: %d, parent's PID: %d\n", getpid(), getppid());
         exit(42);
     default:
-        printf("PARENT: PID %d, chiddld's PID: %d\n", getpid(), pid);
+        printf("PARENT: PID %d, child's PID: %d\n", getpid(), pid);
         printf("PARENT: Waiting for child to exit()...\n");
         wait(&status_argument);
         // Low-order 8 bits of the status argument represent the exit code
