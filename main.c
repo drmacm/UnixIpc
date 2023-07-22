@@ -13,11 +13,12 @@ void display_usage()
     printf("  signals\n");
     printf("  pipes1\n");
     printf("  pipes2\n");
+    printf("  fifo\n");
 }
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc < 2)
     {
         display_usage();
         return 1;
@@ -38,6 +39,10 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[1], "pipes2") == 0)
     {
         pipes_demo_2();
+    }
+    else if (strcmp(argv[1], "fifo") == 0)
+    {
+        fifo_demo(argc, argv);
     }
     else
     {
