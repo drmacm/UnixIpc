@@ -1,6 +1,6 @@
 #include "common.h"
 
-void pipes_demo_1()
+void pipes1()
 {
     int pfds[2];
     char s[200];

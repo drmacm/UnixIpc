@@ -5,7 +5,7 @@ void sigint_handler(int sig)
     write(0, "\nI got interrupted!\n", 20);
 }
 
-void signals_demo()
+void signals()
 {
     void sigint_handler(int sig);
     char s[200];

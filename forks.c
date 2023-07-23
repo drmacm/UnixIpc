@@ -1,6 +1,6 @@
 #include "common.h"
 
-void fork_demo()
+void forks()
 {
     int status_argument;
     pid_t pid = fork();

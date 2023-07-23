@@ -1,53 +1,53 @@
 #include "common.h"
-#include "fifo_demo.c"
-#include "fork_demo.c"
-#include "pipes_demo_1.c"
-#include "pipes_demo_2.c"
-#include "signals_demo.c"
+#include "fifos.c"
+#include "forks.c"
+#include "pipes1.c"
+#include "pipes2.c"
+#include "signals.c"
 
-void display_usage()
+void usage()
 {
     printf("Usage: ./unixipc <demo_name>\n");
     printf("Available demos:\n");
-    printf("  fork\n");
+    printf("  forks\n");
     printf("  signals\n");
     printf("  pipes1\n");
     printf("  pipes2\n");
-    printf("  fifo\n");
+    printf("  fifos\n");
 }
 
 int main(int argc, char *argv[])
 {
     if (argc < 2)
     {
-        display_usage();
+        usage();
         return 1;
     }
 
-    if (strcmp(argv[1], "fork") == 0)
+    if (strcmp(argv[1], "forks") == 0)
     {
-        fork_demo();
+        forks();
     }
     else if (strcmp(argv[1], "signals") == 0)
     {
-        signals_demo();
+        signals();
     }
     else if (strcmp(argv[1], "pipes1") == 0)
     {
-        pipes_demo_1();
+        pipes1();
     }
     else if (strcmp(argv[1], "pipes2") == 0)
     {
-        pipes_demo_2();
+        pipes2();
     }
-    else if (strcmp(argv[1], "fifo") == 0)
+    else if (strcmp(argv[1], "fifos") == 0)
     {
-        fifo_demo(argc, argv);
+        fifos(argc, argv);
     }
     else
     {
         printf("Invalid argument: %s\n", argv[1]);
-        display_usage();
+        usage();
         return 1;
     }
 

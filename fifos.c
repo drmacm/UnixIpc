@@ -31,7 +31,7 @@ void reader()
     exit(0);
 }
 
-void fifo_demo(int argc, char *argv[])
+void fifos(int argc, char *argv[])
 {
     if (argc == 2)
     {
@@ -42,14 +42,14 @@ void fifo_demo(int argc, char *argv[])
         if (writer == 0)
         {
             printf("Writer process created, reexecuting the example with -w argument\n");
-            execlp(argv[0], argv[0], "fifo", "-w", NULL);
+            execlp(argv[0], argv[0], argv[1], "-w", NULL);
         }
 
         pid_t reader = fork();
         if (reader == 0)
         {
             printf("Reader process created, reexecuting the example with -r argument\n");
-            execlp(argv[0], argv[0], "fifo", "-r", NULL);
+            execlp(argv[0], argv[0], argv[1], "-r", NULL);
         }
 
         wait(NULL);
