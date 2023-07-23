@@ -36,7 +36,7 @@ void fifos(int argc, char *argv[])
     if (argc == 2)
     {
         printf("Creating FIFO %s\n", FIFO_PATH);
-        mknod(FIFO_PATH, S_IFIFO | 0666, 0);
+        mknod(FIFO_PATH, S_IFIFO | S_IRUSR | S_IWUSR, 0);
 
         pid_t writer = fork();
         if (writer == 0)
