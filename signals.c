@@ -15,17 +15,11 @@ void signals()
     };
     sigemptyset(&sa.sa_mask);
 
-    if (sigaction(SIGINT, &sa, NULL) == -1)
-    {
-        perror("sigaction");
-        exit(1);
-    }
+    sigaction(SIGINT, &sa, NULL);
 
     printf("Enter a string and press ENTER to exit.\n");
     printf("Press CTRL+C during typing to restart it.\n");
 
-    if (fgets(s, sizeof s, stdin) == NULL)
-        perror("fgets");
-    else
-        printf("You entered: %s\n", s);
+    fgets(s, sizeof s, stdin);
+    printf("You entered: %s\n", s);
 }
