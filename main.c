@@ -1,6 +1,7 @@
 #include "common.h"
 #include "fifos.c"
 #include "forks.c"
+#include "locks.c"
 #include "pipes1.c"
 #include "pipes2.c"
 #include "signals.c"
@@ -14,6 +15,7 @@ void usage()
     printf("  pipes1\n");
     printf("  pipes2\n");
     printf("  fifos\n");
+    printf("  locks\n");
 }
 
 int main(int argc, char *argv[])
@@ -43,6 +45,10 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[1], "fifos") == 0)
     {
         fifos(argc, argv);
+    }
+    else if (strcmp(argv[1], "locks") == 0)
+    {
+        locks(argc, argv);
     }
     else
     {
