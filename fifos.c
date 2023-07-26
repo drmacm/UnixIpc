@@ -1,3 +1,5 @@
+#include "common.h"
+
 #define FIFO_PATH "myfifo"
 
 void writer()
@@ -6,9 +8,11 @@ void writer()
     int writefd;
 
     printf("Writer started, opening %s FIFO for writing\n", FIFO_PATH);
+    fflush(stdout);
     writefd = open(FIFO_PATH, O_WRONLY);
 
     printf("Enter a message: ");
+    fflush(stdout);
     fgets(buffer, sizeof(buffer), stdin);
     write(writefd, buffer, strlen(buffer) + 1);
 
@@ -22,10 +26,12 @@ void reader()
     int readfd;
 
     printf("Reader started, opening %s FIFO for reading\n", FIFO_PATH);
+    fflush(stdout);
     readfd = open(FIFO_PATH, O_RDONLY);
     read(readfd, buffer, sizeof(buffer));
 
     printf("Received message: %s\n", buffer);
+    fflush(stdout);
 
     close(readfd);
     exit(0);
@@ -36,6 +42,7 @@ void fifos(int argc, char *argv[])
     if (argc == 2)
     {
         printf("Creating FIFO %s\n", FIFO_PATH);
+        fflush(stdout);
         mknod(FIFO_PATH, S_IFIFO | S_IRUSR | S_IWUSR, 0);
 
         pid_t writer = fork();
