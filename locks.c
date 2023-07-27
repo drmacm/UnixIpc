@@ -8,7 +8,7 @@ void locks()
         .l_whence = SEEK_SET,
         .l_start = 0,
         .l_len = 0,
-        .l_pid = getpid(),
+        .l_pid = 0,
     };
 
     int fd;
@@ -24,11 +24,14 @@ void locks()
     {
         fl.l_type = F_RDLCK;
 
-        printf("CHILD: Trying to get a read lock to the file\n");
+        printf("CHILD: Checking who has the lock:\n");
+        fcntl(fd, F_GETLK, &fl);
+        printf("CHILD: Lock owner PID: %d, Parent PID: %d\n", fl.l_pid, getppid());
 
+        printf("CHILD: Blocking until I get a read lock to the file\n");
         fcntl(fd, F_SETLKW, &fl);
 
-        printf("CHILD: Got the lock\n");
+        printf("CHILD: Got the lock, can exit now\n");
         fflush(stdout);
 
         exit(0);
