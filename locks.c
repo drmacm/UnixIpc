@@ -38,7 +38,7 @@ void locks()
     }
     else
     {
-        printf("PARENT: Press <RETURN> to release the write lock\n");
+        printf("PARENT: Press <RETURN> to release the write lock\n\n");
         getchar();
 
         fl.l_type = F_UNLCK;
